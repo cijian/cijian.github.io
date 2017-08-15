@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="Write yourself slowly，grow youself slowly" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>使用git遇到的错误汇总 | 小溅的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="git很强大，但是通常情况下我会storm中嵌套git或者svn使用，对命令行使用只会简单的几句，如：git clone、git commit 、git add、git push和git pull等。所以为其他常用命令做一下笔记。 detached HEAD 分支游离之前遇到分支游离错误12HEAD detached at orgin/masternothing to commit, workin">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用git遇到的错误汇总">
+<meta property="og:url" content="http:://blog.cijian.xin/2017/06/09/git错误汇总/index.html">
+<meta property="og:site_name" content="小溅的博客">
+<meta property="og:description" content="git很强大，但是通常情况下我会storm中嵌套git或者svn使用，对命令行使用只会简单的几句，如：git clone、git commit 、git add、git push和git pull等。所以为其他常用命令做一下笔记。 detached HEAD 分支游离之前遇到分支游离错误12HEAD detached at orgin/masternothing to commit, workin">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-15T15:42:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用git遇到的错误汇总">
+<meta name="twitter:description" content="git很强大，但是通常情况下我会storm中嵌套git或者svn使用，对命令行使用只会简单的几句，如：git clone、git commit 、git add、git push和git pull等。所以为其他常用命令做一下笔记。 detached HEAD 分支游离之前遇到分支游离错误12HEAD detached at orgin/masternothing to commit, workin">
+  
+  
+    <link rel="icon" href="/css/images/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="小溅的博客" rel="home">小溅的博客</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">Write yourself slowly，grow youself slowly</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-git错误汇总" class="post-git错误汇总 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      使用git遇到的错误汇总
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http:://blog.cijian.xin/2017/06/09/git错误汇总/" data-id="cj6drcszn0000nl4isrxrv0s8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>git很强大，但是通常情况下我会storm中嵌套git或者svn使用，对命令行使用只会简单的几句，如：<br>git clone、git commit 、git add、git push和git pull等。<br>所以为其他常用命令做一下笔记。</p>
+<h3 id="detached-HEAD-分支游离"><a href="#detached-HEAD-分支游离" class="headerlink" title="detached HEAD 分支游离"></a>detached HEAD 分支游离</h3><p>之前遇到分支游离错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HEAD detached at orgin/master</div><div class="line">nothing to commit, working directory clean</div></pre></td></tr></table></figure></p>
+<p>1.查看分支列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -v</div></pre></td></tr></table></figure>
+<p>2.对游离分支命名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch temp xxxx</div></pre></td></tr></table></figure>
+<p>3.切换master分支merger temp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout master &amp;&amp; git merge temp</div></pre></td></tr></table></figure>
+<h3 id="git之HTTPS与SSH之间切换"><a href="#git之HTTPS与SSH之间切换" class="headerlink" title="git之HTTPS与SSH之间切换"></a>git之HTTPS与SSH之间切换</h3><p>通常使用情况下使用https克隆项目到本地，但是不想总是输入帐号密码pull项目，要打算切换ssh，这样你已经在github或者conding上已经添加了sshkey</p>
+<p>顺便记一下sshkey笔记<br>对gitbug添加sshkey</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;cijian&quot;</div><div class="line"></div><div class="line">git config --global user.email &quot;xxx@gmail.com&quot;</div><div class="line"></div><div class="line">ssh-keygen -t rsa -C &quot;xxx@gmail.com&quot;  //email非必填</div></pre></td></tr></table></figure>
+<p>ssh文件目录<br>linux下 ~/.ssh<br>window下 c://用户//用户名//.ssh<br>对生成的id_rsa.pub文件的内容添加到gitbug设置的上就ok了</p>
+<p>之前使用https clone下来的目录，现在切换使用ssh<br>1、删除当前远程分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote remove origin</div></pre></td></tr></table></figure></p>
+<p>2、添加ssh分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origingit@github.com:cijian/xxxx.git</div></pre></td></tr></table></figure>
+<p>3、关联远程分支的命令，如果现在直接使用git pull也会提示使用此命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch --set-upstream-to=origin/master master</div></pre></td></tr></table></figure></p>
+<h2 id="与远程仓库版本冲突"><a href="#与远程仓库版本冲突" class="headerlink" title="与远程仓库版本冲突"></a>与远程仓库版本冲突</h2><p>最简单最傻逼的方法就是删除当前项目再clone一次下来。但由于网络问题项目clone比较慢。</p>
+<p>1、git stash<br>git stash可用来暂存当前正在进行的工作，比如想pull 最新代码，又不想加新commit，或者另外一种情况，为了fix一个紧急的bug,先stash, 使返回到自己上一个commit, 改完bug之后再stash pop, 继续原来的工作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git stash</div><div class="line">git pull</div><div class="line">//do some thing</div><div class="line">git stash pop</div></pre></td></tr></table></figure></p>
+<p>2、git reset<br>reset是指将当前head的内容重置，不会留任何痕迹。可能你没提交的修改也被重置</p>
+<p>重置上一次的提交<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset --hard</div></pre></td></tr></table></figure></p>
+<p>最新的3次提交全部重置，就像没有提交过一样。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD~3  </div><div class="line"></div><div class="line">git reset --hard HEAD^ //上上次</div></pre></td></tr></table></figure></p>
+<p>3、revert<br>revert是撤销某次提交，但是这次撤销也会作为一次提交进行保存(这样就不会丢失原来修改过，但是没有提交的内容？)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git revert HEAD  //撤销前一次 commit</div><div class="line">git revert HEAD^ //撤销前前一次 commit</div></pre></td></tr></table></figure></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/06/09/git错误汇总/">
+    <time datetime="2017-06-09T07:07:06.000Z" class="entry-date">
+        2017-06-09
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/06/12/发愁/" rel="prev"><span class="meta-nav">←</span> 幸亏老子技术过硬</a></span>
+    
+    
+        <span class="nav-next"><a href="/2015/10/12/python穷举/" rel="next">python穷举 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/12/发愁/">幸亏老子技术过硬</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/09/git错误汇总/">使用git遇到的错误汇总</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/12/python穷举/">python穷举</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/git/" style="font-size: 10px;">git</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 cijian
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+  
+
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -20px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/koharu/koharu.model.json")</script>
+  
+</body>
+</html>
